@@ -1,0 +1,34 @@
+-  request:
+      method: [GET,POST]
+      url: /invoice/123
+
+   response:
+      status: 201
+      headers:
+         content-type: application/json
+      body: OK
+
+-  request:
+      method: [GET]
+      url: /uri/with/sequenced/responses
+
+   response:
+      -  status: 201
+         headers:
+            content-type: application/json
+         body: OK
+
+      -  status: 201
+         headers:
+            content-stype: application/json
+         body: Still going strong!
+
+      -  status: 500
+         headers:
+            content-type: application/json
+         body: OMG changed!!!
+
+-  request:
+      url: /
+   response:
+      file: extremelyLongJsonFile.json
